@@ -2,11 +2,31 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  padding: 10px;
+}
+
+.App {
+  padding: 30px;
 }
 
 .main-container {
   background-color: rgb(217, 241, 243);
   text-align: center;
   min-height: 70vh;
+  padding: 30px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin-top: 30px;
+}
+
+.main-content h2 {
+  margin-bottom: 15px;
+}
+
+.cards {
+  display: flex;
 }
