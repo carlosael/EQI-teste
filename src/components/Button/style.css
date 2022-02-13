@@ -23,6 +23,25 @@
   font-size: 13px;
 }
 
+.desactive {
+  all: unset;
+  background-color: rgb(142, 153, 158);
+  border-radius: 10px;
+  padding: 5px 5px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.activated {
+  all: unset;
+  background-color: rgb(139, 131, 56);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px 5px;
+  text-align: center;
+  font-size: 13px;
+}
+
 .smaller {
   width: 33%;
 }
