@@ -20,13 +20,13 @@ function Yield() {
     data.setForm({ ...data.form, [target.name]: target.value });
   }
 
-  function handleIncomeType() {
-    if (grossIncomeActive) {
-      setGrossIncomeActive(false);
-      setNetIncomeActive(true);
-    } else {
+  function handleIncomeType(event) {
+    if (event.target.outerText === "Bruto") {
       setGrossIncomeActive(true);
       setNetIncomeActive(false);
+    } else if (event.target.outerText === "Líquido") {
+      setGrossIncomeActive(false);
+      setNetIncomeActive(true);
     }
   }
 
@@ -76,7 +76,7 @@ function Yield() {
         />
 
         <label htmlFor="">IPCA (ao ano)</label>
-        <input type="text" name="ipca" value={`${data.ipca}%`} />
+        <input type="text" name="ipca" value={`${data.ipca}% `} />
       </form>
     </div>
   );

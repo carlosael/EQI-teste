@@ -5,10 +5,15 @@ export default function ClientsProvider(props) {
   const defaultFormValues = {
     aport: "",
     term: "",
+    monthlyAport: "",
+    profitability: "",
   };
+
   const [valuesData, setValuesData] = useState([]);
   const [form, setForm] = useState(defaultFormValues);
+
   const [ipca, setIpca] = useState("");
+  const [cdi, setCdi] = useState("");
 
   const dataContextValues = {
     valuesData,
@@ -18,6 +23,8 @@ export default function ClientsProvider(props) {
     defaultFormValues,
     ipca,
     setIpca,
+    cdi,
+    setCdi,
   };
 
   return (
