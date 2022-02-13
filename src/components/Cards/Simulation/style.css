@@ -1,0 +1,21 @@
+.grid {
+  display: grid;
+}
+
+.grid-6-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+  margin: 5px;
+  background: rgb(217, 241, 243);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.37);
+  text-align: center;
+  padding: 5px 30px;
+  margin-right: 50px;
+  margin-bottom: 30px;
+}
+
+.item p {
+  font-weight: bold;
+}
