@@ -1,6 +1,7 @@
 import "./App.css";
 import IndexingFees from "./components/Cards/IndexingFees";
 import Yield from "./components/Cards/Yield";
+import Button from "./components/Cards/Button";
 
 function App() {
   return (
