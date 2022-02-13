@@ -1,18 +1,20 @@
 import informationIcon from "../../../assets/informationIcon.svg";
 import "./style.css";
-import Button from "../Button";
+import Button from "../../Button";
 import check from "../../../assets/check.svg";
 import { useEffect, useState, useContext } from "react";
 import InputMask from "react-input-mask";
 import ValuesContext from "../../../contexts/ValuesContext";
+import handleGetIPCA from "../../../services/handleGetIPCA";
 
 function Yield() {
   const [grossIncomeActive, setGrossIncomeActive] = useState(true);
   const [netIncomeActive, setNetIncomeActive] = useState(false);
-  const [ipca, setIpca] = useState("");
   const data = useContext(ValuesContext);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    handleGetIPCA(data.setIpca);
+  }, []);
 
   function handleChange(target) {
     data.setForm({ ...data.form, [target.name]: target.value });
@@ -74,7 +76,7 @@ function Yield() {
         />
 
         <label htmlFor="">IPCA (ao ano)</label>
-        <input type="text" name="ipca" value={ipca} />
+        <input type="text" name="ipca" value={`${data.ipca}%`} />
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 import informationIcon from "../../../assets/informationIcon.svg";
 import "./style.css";
-import Button from "../Button";
+import Button from "../../Button";
 
 function IndexingFees() {
   return (

@@ -32,6 +32,10 @@
   gap: 40px;
 }
 
+.wider {
+  width: 50%;
+}
+
 .main-buttons {
   display: flex;
   gap: 20px;
