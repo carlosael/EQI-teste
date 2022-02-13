@@ -1,0 +1,11 @@
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 200px;
+}
+
+.card-title img {
+  height: 15px;
+}

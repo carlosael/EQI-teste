@@ -1,0 +1,23 @@
+.main-btn {
+  all: unset;
+  background-color: rgb(217, 241, 243);
+  border-radius: 10px;
+  color: #000;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  border: 1px solid #000;
+  font-size: 13px;
+}
+
+.active {
+  all: unset;
+  background-color: rgb(139, 131, 56);
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  border: 1px solid #000;
+  font-size: 13px;
+}

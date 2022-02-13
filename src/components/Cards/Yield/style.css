@@ -1,0 +1,22 @@
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title img {
+  height: 15px;
+}
+
+.wider {
+  width: 50%;
+}
+
+.buttons-container {
+  display: flex;
+}
+
+.buttons-container img {
+  margin-right: 2px;
+  height: 10px;
+}
