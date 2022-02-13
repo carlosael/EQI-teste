@@ -2,23 +2,21 @@ import informationIcon from "../../../assets/informationIcon.svg";
 import "./style.css";
 import Button from "../Button";
 import check from "../../../assets/check.svg";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import InputMask from "react-input-mask";
-
-const defaultFormValues = {
-  grossIncomeActive: "",
-  netIncomeActive: "",
-};
+import ValuesContext from "../../../contexts/ValuesContext";
 
 function Yield() {
   const [grossIncomeActive, setGrossIncomeActive] = useState(true);
   const [netIncomeActive, setNetIncomeActive] = useState(false);
-  const [form, setForm] = useState(defaultFormValues);
-  const [aport, setAport] = useState("");
-  const [term, setTerm] = useState("");
   const [ipca, setIpca] = useState("");
+  const data = useContext(ValuesContext);
 
   useEffect(() => {}, []);
+
+  function handleChange(target) {
+    data.setForm({ ...data.form, [target.name]: target.value });
+  }
 
   function handleIncomeType() {
     if (grossIncomeActive) {
@@ -57,16 +55,27 @@ function Yield() {
         </Button>
       </div>
 
-      <div className="inputs">
+      <form className="inputs">
         <label htmlFor="">Aporte Inicial</label>
-        <InputMask mask="R$ 9.999,99" type="text" name="aport" value={aport} />
+        <InputMask
+          mask="R$ 9.999,99"
+          type="text"
+          name="aport"
+          value={data.form.aport}
+          onChange={(event) => handleChange(event.target)}
+        />
 
         <label htmlFor="">Prazo (em meses)</label>
-        <input type="text" name="term" value={term} />
+        <input
+          type="text"
+          name="term"
+          value={data.form.term}
+          onChange={(event) => handleChange(event.target)}
+        />
 
         <label htmlFor="">IPCA (ao ano)</label>
         <input type="text" name="ipca" value={ipca} />
-      </div>
+      </form>
     </div>
   );
 }
