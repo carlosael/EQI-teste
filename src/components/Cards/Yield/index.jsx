@@ -2,14 +2,12 @@ import informationIcon from "../../../assets/informationIcon.svg";
 import "./style.css";
 import Button from "../../Button";
 import check from "../../../assets/check.svg";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import InputMask from "react-input-mask";
 import ValuesContext from "../../../contexts/ValuesContext";
 import handleGetIPCA from "../../../services/handleGetIPCA";
 
 function Yield() {
-  const [grossIncomeActive, setGrossIncomeActive] = useState(true);
-  const [netIncomeActive, setNetIncomeActive] = useState(false);
   const data = useContext(ValuesContext);
 
   useEffect(() => {
@@ -22,11 +20,11 @@ function Yield() {
 
   function handleIncomeType(event) {
     if (event.target.outerText === "Bruto") {
-      setGrossIncomeActive(true);
-      setNetIncomeActive(false);
+      data.setGrossIncomeActive(true);
+      data.setNetIncomeActive(false);
     } else if (event.target.outerText === "Líquido") {
-      setGrossIncomeActive(false);
-      setNetIncomeActive(true);
+      data.setGrossIncomeActive(false);
+      data.setNetIncomeActive(true);
     }
   }
 
@@ -39,20 +37,20 @@ function Yield() {
 
       <div className="buttons-container">
         <Button
-          color={grossIncomeActive ? "active" : ""}
+          color={data.grossIncomeActive ? "active" : ""}
           classes={"wider"}
           action={handleIncomeType}
         >
-          {grossIncomeActive && <img src={check} alt="check icon" />}
+          {data.grossIncomeActive && <img src={check} alt="check icon" />}
           Bruto
         </Button>
 
         <Button
-          color={netIncomeActive ? "active" : ""}
+          color={data.netIncomeActive ? "active" : ""}
           classes={"wider"}
           action={handleIncomeType}
         >
-          {netIncomeActive && <img src={check} alt="check icon" />}
+          {data.netIncomeActive && <img src={check} alt="check icon" />}
           Líquido
         </Button>
       </div>

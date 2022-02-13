@@ -8,10 +8,6 @@ import Button from "../../Button";
 import "./style.css";
 
 function IndexingFees() {
-  const [preActive, setPreActive] = useState(true);
-  const [postActive, setPostActive] = useState(false);
-  const [fixedActive, setFixedActive] = useState(false);
-
   const data = useContext(ValuesContext);
 
   useEffect(() => {
@@ -24,17 +20,17 @@ function IndexingFees() {
 
   function handleIncomeType(event) {
     if (event.target.outerText === "PRÉ") {
-      setPreActive(true);
-      setPostActive(false);
-      setFixedActive(false);
+      data.setPreActive(true);
+      data.setPostActive(false);
+      data.setFixedActive(false);
     } else if (event.target.outerText === "PÓS") {
-      setPreActive(false);
-      setPostActive(true);
-      setFixedActive(false);
+      data.setPreActive(false);
+      data.setPostActive(true);
+      data.setFixedActive(false);
     } else if (event.target.outerText === "FIXADO") {
-      setPreActive(false);
-      setPostActive(false);
-      setFixedActive(true);
+      data.setPreActive(false);
+      data.setPostActive(false);
+      data.setFixedActive(true);
     }
   }
 
@@ -46,29 +42,29 @@ function IndexingFees() {
       </div>
       <div className="buttons-container">
         <Button
-          color={preActive ? "active" : ""}
+          color={data.preActive ? "active" : ""}
           classes={"smaller"}
           action={handleIncomeType}
         >
-          {preActive && <img src={check} alt="check icon" />}
+          {data.preActive && <img src={check} alt="check icon" />}
           PRÉ
         </Button>
 
         <Button
-          color={postActive ? "active" : ""}
+          color={data.postActive ? "active" : ""}
           classes={"smaller"}
           action={handleIncomeType}
         >
-          {postActive && <img src={check} alt="check icon" />}
+          {data.postActive && <img src={check} alt="check icon" />}
           PÓS
         </Button>
 
         <Button
-          color={fixedActive ? "active" : ""}
+          color={data.fixedActive ? "active" : ""}
           classes={"smaller"}
           action={handleIncomeType}
         >
-          {fixedActive && <img src={check} alt="check icon" />}
+          {data.fixedActive && <img src={check} alt="check icon" />}
           FIXADO
         </Button>
       </div>

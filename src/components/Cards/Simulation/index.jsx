@@ -1,7 +1,11 @@
 import "./style.css";
 import Graphic from "../../Graphic";
+import { useContext } from "react";
+import ValuesContext from "../../../contexts/ValuesContext";
 
 export default function Simulation() {
+  const data = useContext(ValuesContext);
+
   return (
     <>
       <h2>Resultado da Simulação</h2>
@@ -42,6 +46,7 @@ export default function Simulation() {
       </div>
       <div className="projection">
         <h4>Projeção de valores</h4>
+        <Graphic></Graphic>
       </div>
     </>
   );

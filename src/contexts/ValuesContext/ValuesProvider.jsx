@@ -11,9 +11,13 @@ export default function ClientsProvider(props) {
 
   const [valuesData, setValuesData] = useState([]);
   const [form, setForm] = useState(defaultFormValues);
-
   const [ipca, setIpca] = useState("");
   const [cdi, setCdi] = useState("");
+  const [grossIncomeActive, setGrossIncomeActive] = useState(true);
+  const [netIncomeActive, setNetIncomeActive] = useState(false);
+  const [preActive, setPreActive] = useState(true);
+  const [postActive, setPostActive] = useState(false);
+  const [fixedActive, setFixedActive] = useState(false);
 
   const dataContextValues = {
     valuesData,
@@ -25,6 +29,16 @@ export default function ClientsProvider(props) {
     setIpca,
     cdi,
     setCdi,
+    grossIncomeActive,
+    setGrossIncomeActive,
+    netIncomeActive,
+    setNetIncomeActive,
+    preActive,
+    setPreActive,
+    postActive,
+    setPostActive,
+    fixedActive,
+    setFixedActive,
   };
 
   return (
