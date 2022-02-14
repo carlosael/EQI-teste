@@ -4,8 +4,14 @@ import Yield from "./components/Cards/Yield";
 import ValuesProvider from "./contexts/ValuesContext/ValuesProvider";
 import MainButtons from "./components/MainButtons";
 import Simulation from "./components/Cards/Simulation";
+import { useState } from "react";
 
 function App() {
+  const [openSimulation, setOpenSimulation] = useState(false);
+  const [simulationData, setSimulationData] = useState([]);
+  const [yieldType, setYieldType] = useState("bruto");
+  const [indexingType, setIndexingType] = useState("pre");
+
   return (
     <ValuesProvider>
       <div className="App">
@@ -18,15 +24,20 @@ function App() {
             <div className="container-left">
               <h2>Simulador</h2>
               <div className="cards">
-                <Yield />
-                <IndexingFees />
+                <Yield setYieldType={setYieldType} />
+                <IndexingFees setIndexingType={setIndexingType} />
               </div>
               <div className="main-buttons">
-                <MainButtons />
+                <MainButtons
+                  setOpenSimulation={setOpenSimulation}
+                  setSimulationData={setSimulationData}
+                  yieldType={yieldType}
+                  indexingType={indexingType}
+                />
               </div>
             </div>
             <div className="container-right">
-              <Simulation></Simulation>
+              {openSimulation && <Simulation simulationData={simulationData} />}
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ import handleGetCDI from "../../../services/handleGetCDI";
 import Button from "../../Button";
 import "./style.css";
 
-function IndexingFees() {
+function IndexingFees({ setIndexingType }) {
   const data = useContext(ValuesContext);
 
   useEffect(() => {
@@ -18,19 +18,30 @@ function IndexingFees() {
     data.setForm({ ...data.form, [target.name]: target.value });
   }
 
-  function handleIncomeType(event) {
-    if (event.target.outerText === "PRÉ") {
+  function handlePreIncome() {
+    if (!data.preActive) {
       data.setPreActive(true);
       data.setPostActive(false);
       data.setFixedActive(false);
-    } else if (event.target.outerText === "PÓS") {
-      data.setPreActive(false);
+      setIndexingType("pre");
+    }
+  }
+
+  function handleProIncome() {
+    if (!data.postActive) {
       data.setPostActive(true);
+      data.setPreActive(false);
       data.setFixedActive(false);
-    } else if (event.target.outerText === "FIXADO") {
+      setIndexingType("pos");
+    }
+  }
+
+  function handleFixedIncome() {
+    if (!data.fixedActive) {
+      data.setFixedActive(true);
       data.setPreActive(false);
       data.setPostActive(false);
-      data.setFixedActive(true);
+      setIndexingType("ipca");
     }
   }
 
@@ -44,7 +55,7 @@ function IndexingFees() {
         <Button
           color={data.preActive ? "active" : ""}
           classes={"smaller"}
-          action={handleIncomeType}
+          action={handlePreIncome}
         >
           {data.preActive && <img src={check} alt="check icon" />}
           PRÉ
@@ -53,7 +64,7 @@ function IndexingFees() {
         <Button
           color={data.postActive ? "active" : ""}
           classes={"smaller"}
-          action={handleIncomeType}
+          action={handleProIncome}
         >
           {data.postActive && <img src={check} alt="check icon" />}
           PÓS
@@ -62,7 +73,7 @@ function IndexingFees() {
         <Button
           color={data.fixedActive ? "active" : ""}
           classes={"smaller"}
-          action={handleIncomeType}
+          action={handleFixedIncome}
         >
           {data.fixedActive && <img src={check} alt="check icon" />}
           FIXADO

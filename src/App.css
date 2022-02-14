@@ -36,3 +36,17 @@
   gap: 20px;
   width: 440px;
 }
+
+.vertical {
+  transform: rotate(270deg);
+  font-size: 12px;
+}
+
+.left {
+  width: 20px;
+  padding-top: 80px;
+}
+
+.graph {
+  display: flex;
+}

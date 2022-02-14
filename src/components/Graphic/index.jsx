@@ -1,40 +1,90 @@
 import React from "react";
 import { BarChart, Bar, XAxis } from "recharts";
-import ValuesContext from "../../contexts/ValuesContext";
-import { useContext } from "react";
 
-const Graphic = () => {
-  const simulationData = useContext(ValuesContext);
+import withAportIcon from "../../assets/withAport.svg";
+import withoutAportIcon from "../../assets/withoutAport.svg";
+import "./style.css";
 
+const Graphic = ({ simulationData }) => {
   const data = [
-    { name: "0", x: 1000, y: 1000 },
-    { name: "1", x: 1103.2737397822002, y: 1003.273739782199, z: 73 },
-    { name: "2", x: 13, y: 15, z: 32 },
-    { name: "3", x: 44, y: 35, z: 23 },
-    { name: "4", x: 35, y: 45, z: 20 },
-    { name: "5", x: 62, y: 25, z: 29 },
-    { name: "6", x: 37, y: 17, z: 61 },
-    { name: "7", x: 28, y: 32, z: 45 },
-    { name: "8", x: 19, y: 43, z: 93 },
-    { name: "9", x: 19, y: 43, z: 93 },
-    { name: "10", x: 19, y: 43, z: 93 },
-    { name: "11", x: 19, y: 43, z: 93 },
-    { name: "12", x: 19, y: 43, z: 93 },
-    { name: "13", x: 19, y: 43, z: 93 },
-    { name: "14", x: 19, y: 43, z: 93 },
-    { name: "15", x: 19, y: 43, z: 93 },
-    { name: "16", x: 19, y: 43, z: 93 },
-    { name: "17", x: 19, y: 43, z: 93 },
+    {
+      name: "0",
+      x: simulationData.graficoValores.semAporte[0],
+      y: simulationData.graficoValores.comAporte[0],
+    },
+    {
+      name: "1",
+      x: simulationData.graficoValores.semAporte[1],
+      y: simulationData.graficoValores.comAporte[1],
+    },
+    {
+      name: "2",
+      x: simulationData.graficoValores.semAporte[2],
+      y: simulationData.graficoValores.comAporte[2],
+    },
+    {
+      name: "3",
+      x: simulationData.graficoValores.semAporte[3],
+      y: simulationData.graficoValores.comAporte[3],
+    },
+    {
+      name: "4",
+      x: simulationData.graficoValores.semAporte[4],
+      y: simulationData.graficoValores.comAporte[4],
+    },
+    {
+      name: "5",
+      x: simulationData.graficoValores.semAporte[5],
+      y: simulationData.graficoValores.comAporte[5],
+    },
+    {
+      name: "6",
+      x: simulationData.graficoValores.semAporte[6],
+      y: simulationData.graficoValores.comAporte[6],
+    },
+    {
+      name: "7",
+      x: simulationData.graficoValores.semAporte[7],
+      y: simulationData.graficoValores.comAporte[7],
+    },
+    {
+      name: "8",
+      x: simulationData.graficoValores.semAporte[8],
+      y: simulationData.graficoValores.comAporte[8],
+    },
+    {
+      name: "9",
+      x: simulationData.graficoValores.semAporte[9],
+      y: simulationData.graficoValores.comAporte[9],
+    },
+    {
+      name: "10",
+      x: simulationData.graficoValores.semAporte[10],
+      y: simulationData.graficoValores.comAporte[10],
+    },
   ];
 
   return (
     <>
-      <BarChart width={765} height={200} data={data}>
-        <XAxis dataKey="name" />
-        <Bar dataKey="x" stackId="a" fill="#000" />
-        <Bar dataKey="y" stackId="a" fill="rgb(139, 131, 56)" />
-      </BarChart>
-      <p>Com aporte</p>
+      {simulationData && (
+        <>
+          <BarChart width={760} height={200} data={data}>
+            <XAxis dataKey="name" />
+            <Bar dataKey="x" stackId="a" fill="#000" />
+            <Bar dataKey="y" stackId="a" fill="rgb(139, 131, 56)" />
+          </BarChart>
+          <div className="icons">
+            <div className="icons-text">
+              <img src={withAportIcon} alt="with aport icon" />
+              <p>Com aporte</p>
+            </div>
+            <div className="icons-text">
+              <img src={withoutAportIcon} alt="with aport icon" />
+              <p>Sem aporte</p>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
