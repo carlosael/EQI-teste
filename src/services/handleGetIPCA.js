@@ -1,4 +1,4 @@
-async function loadIPCA(setIpca) {
+async function handleGetIPCA(setIpca) {
     try {
         const response = await fetch("http://localhost:3000/indicadores?q=ipca", {
             method: "GET",
@@ -15,4 +15,4 @@ async function loadIPCA(setIpca) {
     }
 }
 
-export default loadIPCA;
+export default handleGetIPCA;

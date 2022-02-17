@@ -1,4 +1,4 @@
-async function loadIPCA(setCdi) {
+async function handleGetCDI(setCdi) {
     try {
         const response = await fetch("http://localhost:3000/indicadores?q=cdi", {
             method: "GET",
@@ -15,4 +15,4 @@ async function loadIPCA(setCdi) {
     }
 }
 
-export default loadIPCA;
+export default handleGetCDI;

@@ -18,6 +18,13 @@ export default function ClientsProvider(props) {
   const [preActive, setPreActive] = useState(true);
   const [postActive, setPostActive] = useState(false);
   const [fixedActive, setFixedActive] = useState(false);
+  const [monthlyAportInputTypeError, setMonthlyAportInputTypeError] =
+    useState(false);
+  const [profitabilityInputTypeError, setProfitabilityInputTypeError] =
+    useState(false);
+  const [initialAportInputTypeError, setInitialAportInputTypeError] =
+    useState(false);
+  const [termInputTypeError, setTermInputTypeError] = useState(false);
 
   const dataContextValues = {
     valuesData,
@@ -39,6 +46,14 @@ export default function ClientsProvider(props) {
     setPostActive,
     fixedActive,
     setFixedActive,
+    monthlyAportInputTypeError,
+    setMonthlyAportInputTypeError,
+    profitabilityInputTypeError,
+    setProfitabilityInputTypeError,
+    initialAportInputTypeError,
+    setInitialAportInputTypeError,
+    termInputTypeError,
+    setTermInputTypeError,
   };
 
   return (

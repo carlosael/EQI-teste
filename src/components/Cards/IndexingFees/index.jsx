@@ -5,6 +5,8 @@ import informationIcon from "../../../assets/informationIcon.svg";
 import ValuesContext from "../../../contexts/ValuesContext";
 import handleGetCDI from "../../../services/handleGetCDI";
 import Button from "../../Button";
+import InputErrorMessage from "../../InputErrorMessage";
+
 import "./style.css";
 
 function IndexingFees({ setIndexingType }) {
@@ -15,7 +17,11 @@ function IndexingFees({ setIndexingType }) {
   }, []);
 
   function handleChange(target) {
-    data.setForm({ ...data.form, [target.name]: target.value });
+    data.setForm({
+      ...data.form,
+      [target.name]:
+        target.value === undefined ? "undefined" : target.value || " ",
+    });
   }
 
   function handlePreIncome() {
@@ -54,7 +60,7 @@ function IndexingFees({ setIndexingType }) {
       <div className="buttons-container">
         <Button
           color={data.preActive ? "active" : ""}
-          classes={"smaller"}
+          classes={"smaller left"}
           action={handlePreIncome}
         >
           {data.preActive && <img src={check} alt="check icon" />}
@@ -63,7 +69,7 @@ function IndexingFees({ setIndexingType }) {
 
         <Button
           color={data.postActive ? "active" : ""}
-          classes={"smaller"}
+          classes={"smaller center"}
           action={handleProIncome}
         >
           {data.postActive && <img src={check} alt="check icon" />}
@@ -72,7 +78,7 @@ function IndexingFees({ setIndexingType }) {
 
         <Button
           color={data.fixedActive ? "active" : ""}
-          classes={"smaller"}
+          classes={"smaller right"}
           action={handleFixedIncome}
         >
           {data.fixedActive && <img src={check} alt="check icon" />}
@@ -81,24 +87,42 @@ function IndexingFees({ setIndexingType }) {
       </div>
 
       <form className="inputs">
-        <label htmlFor="">Aporte Mensal</label>
-        <InputMask
-          mask="R$ 9.999,99"
-          type="text"
-          name="monthlyAport"
-          value={data.form.monthlyAport}
-          onChange={(event) => handleChange(event.target)}
-        />
-
-        <label htmlFor="">Rentabilidade</label>
-        <InputMask
-          mask="999%"
-          type="text"
-          name="profitability"
-          value={data.form.profitability}
-          onChange={(event) => handleChange(event.target)}
-        />
-
+        <div className="input-container">
+          <label
+            htmlFor=""
+            className={data.monthlyAportInputTypeError ? "red-error" : ""}
+          >
+            Aporte Mensal
+          </label>
+          <input
+            type="text"
+            name="monthlyAport"
+            value={data.form.monthlyAport}
+            onChange={(event) => handleChange(event.target)}
+          />
+          {data.monthlyAportInputTypeError && (
+            <InputErrorMessage>Aporte deve ser um número</InputErrorMessage>
+          )}
+        </div>
+        <div className="input-container">
+          <label
+            htmlFor=""
+            className={data.profitabilityInputTypeError ? "red-error" : ""}
+          >
+            Rentabilidade
+          </label>
+          <input
+            type="text"
+            name="profitability"
+            value={data.form.profitability}
+            onChange={(event) => handleChange(event.target)}
+          />
+          {data.profitabilityInputTypeError && (
+            <InputErrorMessage>
+              Rentabilidade deve ser um número
+            </InputErrorMessage>
+          )}
+        </div>
         <label htmlFor="">CDI (ao ano)</label>
         <input type="text" name="cdi" value={`${data.cdi}%`} />
       </form>

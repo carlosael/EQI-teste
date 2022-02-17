@@ -1,4 +1,4 @@
-async function loadSimulation(indexingType,yieldType, setSimulationData) {
+async function handleGetSimulation(indexingType,yieldType, setSimulationData) {
     
     try {
       const response = await fetch(
@@ -21,4 +21,4 @@ async function loadSimulation(indexingType,yieldType, setSimulationData) {
     } 
   }
 
-  export default loadSimulation;
+  export default handleGetSimulation;

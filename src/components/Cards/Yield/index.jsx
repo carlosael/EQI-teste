@@ -3,11 +3,11 @@ import "./style.css";
 import Button from "../../Button";
 import check from "../../../assets/check.svg";
 import { useEffect, useContext } from "react";
-import InputMask from "react-input-mask";
 import ValuesContext from "../../../contexts/ValuesContext";
 import handleGetIPCA from "../../../services/handleGetIPCA";
+import InputErrorMessage from "../../InputErrorMessage";
 
-function Yield() {
+function Yield({ setYieldType }) {
   const data = useContext(ValuesContext);
 
   useEffect(() => {
@@ -22,9 +22,11 @@ function Yield() {
     if (event.target.outerText === "Bruto") {
       data.setGrossIncomeActive(true);
       data.setNetIncomeActive(false);
+      setYieldType("bruto");
     } else if (event.target.outerText === "Líquido") {
       data.setGrossIncomeActive(false);
       data.setNetIncomeActive(true);
+      setYieldType("liquido");
     }
   }
 
@@ -38,7 +40,7 @@ function Yield() {
       <div className="buttons-container">
         <Button
           color={data.grossIncomeActive ? "active" : ""}
-          classes={"wider"}
+          classes={"wider left"}
           action={handleIncomeType}
         >
           {data.grossIncomeActive && <img src={check} alt="check icon" />}
@@ -47,7 +49,7 @@ function Yield() {
 
         <Button
           color={data.netIncomeActive ? "active" : ""}
-          classes={"wider"}
+          classes={"wider right"}
           action={handleIncomeType}
         >
           {data.netIncomeActive && <img src={check} alt="check icon" />}
@@ -56,22 +58,40 @@ function Yield() {
       </div>
 
       <form className="inputs">
-        <label htmlFor="">Aporte Inicial</label>
-        <InputMask
-          mask="R$ 9.999,99"
-          type="text"
-          name="aport"
-          value={data.form.aport}
-          onChange={(event) => handleChange(event.target)}
-        />
-
-        <label htmlFor="">Prazo (em meses)</label>
-        <input
-          type="text"
-          name="term"
-          value={data.form.term}
-          onChange={(event) => handleChange(event.target)}
-        />
+        <div className="input-container">
+          <label
+            htmlFor=""
+            className={data.initialAportInputTypeError ? "red-error" : ""}
+          >
+            Aporte Inicial
+          </label>
+          <input
+            type="text"
+            name="aport"
+            value={data.form.aport}
+            onChange={(event) => handleChange(event.target)}
+          />
+          {data.initialAportInputTypeError && (
+            <InputErrorMessage>Aporte deve ser um número</InputErrorMessage>
+          )}
+        </div>
+        <div className="input-container">
+          <label
+            htmlFor=""
+            className={data.termInputTypeError ? "red-error" : ""}
+          >
+            Prazo (em meses)
+          </label>
+          <input
+            type="text"
+            name="term"
+            value={data.form.term}
+            onChange={(event) => handleChange(event.target)}
+          />
+          {data.termInputTypeError && (
+            <InputErrorMessage>Aporte deve ser um número</InputErrorMessage>
+          )}
+        </div>
 
         <label htmlFor="">IPCA (ao ano)</label>
         <input type="text" name="ipca" value={`${data.ipca}% `} />

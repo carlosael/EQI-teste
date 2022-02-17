@@ -14,6 +14,43 @@ export default function MainButtons({
   const data = useContext(ValuesContext);
 
   async function getSimulation() {
+    let onlyNumbers = /^\s*[0-9]*$/;
+
+    let anyErrors = false;
+
+    if (onlyNumbers.test(data.form.monthlyAport)) {
+      data.setMonthlyAportInputTypeError(false);
+    } else {
+      data.setMonthlyAportInputTypeError(true);
+      anyErrors = true;
+    }
+
+    if (onlyNumbers.test(data.form.term)) {
+      data.setTermInputTypeError(false);
+    } else {
+      data.setTermInputTypeError(true);
+      anyErrors = true;
+    }
+
+    if (onlyNumbers.test(data.form.aport)) {
+      data.setInitialAportInputTypeError(false);
+    } else {
+      data.setInitialAportInputTypeError(true);
+      anyErrors = true;
+    }
+
+    if (onlyNumbers.test(data.form.profitability)) {
+      data.setProfitabilityInputTypeError(false);
+    } else {
+      data.setProfitabilityInputTypeError(true);
+      anyErrors = true;
+    }
+
+    if (anyErrors) {
+      setOpenSimulation(false);
+      return;
+    }
+
     await loadSimulation(indexingType, yieldType, setSimulationData);
     setOpenSimulation(true);
   }
@@ -47,6 +84,7 @@ export default function MainButtons({
         classes={"wider"}
         color={buttonActive ? "activated" : "desactive"}
         action={getSimulation}
+        shouldDisable={true}
       >
         <strong>Simular</strong>
       </Button>

@@ -45,3 +45,17 @@
 .smaller {
   width: 33%;
 }
+
+.left {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.right {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.center {
+  border-radius: 0;
+}

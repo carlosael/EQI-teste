@@ -7,8 +7,7 @@ export default function Simulation({ simulationData }) {
       {simulationData && (
         <>
           <h2>Resultado da Simulação</h2>
-          <div className="simulation-cards"></div>
-          <div>
+          <div className="simulation-cards">
             <section class="grid grid-6-cards">
               <div class="item">
                 <p>Valor Final Bruto</p>
