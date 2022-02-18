@@ -1,5 +1,5 @@
-import "./style.css";
 import Graphic from "../../Graphic";
+import "./style.css";
 
 export default function Simulation({ simulationData }) {
   return (

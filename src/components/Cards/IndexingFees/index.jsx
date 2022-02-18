@@ -5,7 +5,6 @@ import ValuesContext from "../../../contexts/ValuesContext";
 import handleGetCDI from "../../../services/handleGetCDI";
 import Button from "../../Button";
 import InputErrorMessage from "../../InputErrorMessage";
-
 import "./style.css";
 
 function IndexingFees({ setIndexingType }) {

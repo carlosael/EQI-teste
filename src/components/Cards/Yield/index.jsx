@@ -1,11 +1,11 @@
-import informationIcon from "../../../assets/informationIcon.svg";
-import "./style.css";
-import Button from "../../Button";
+import { useContext, useEffect } from "react";
 import check from "../../../assets/check.svg";
-import { useEffect, useContext } from "react";
+import informationIcon from "../../../assets/informationIcon.svg";
 import ValuesContext from "../../../contexts/ValuesContext";
 import handleGetIPCA from "../../../services/handleGetIPCA";
+import Button from "../../Button";
 import InputErrorMessage from "../../InputErrorMessage";
+import "./style.css";
 
 function Yield({ setYieldType }) {
   const data = useContext(ValuesContext);

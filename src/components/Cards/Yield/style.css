@@ -1,7 +1,7 @@
 .card-title {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 15px;
 }
 
@@ -19,14 +19,14 @@
 }
 
 .buttons-container img {
-  margin-right: 2px;
   height: 10px;
+  margin-right: 2px;
 }
 
 .inputs {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 20px;
 }
 
@@ -34,6 +34,6 @@ input {
   all: unset;
   box-sizing: border-box;
   border-bottom: 1px solid #000;
-  text-align: left;
   margin-bottom: 20px;
+  text-align: left;
 }

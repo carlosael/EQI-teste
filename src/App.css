@@ -1,7 +1,7 @@
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
@@ -10,10 +10,10 @@
 
 .main-container {
   background-color: rgb(217, 241, 243);
+  border-radius: 20px;
   min-height: 70vh;
   text-align: center;
   padding: 30px;
-  border-radius: 20px;
 }
 
 .main-content {
@@ -35,8 +35,8 @@
 .main-buttons {
   display: flex;
   gap: 20px;
-  width: 440px;
   margin-top: 20px;
+  width: 440px;
 }
 
 .vertical {

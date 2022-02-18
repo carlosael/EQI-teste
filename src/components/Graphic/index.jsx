@@ -1,6 +1,5 @@
 import React from "react";
-import { BarChart, Bar, XAxis } from "recharts";
-
+import { Bar, BarChart, XAxis } from "recharts";
 import withAportIcon from "../../assets/withAport.svg";
 import withoutAportIcon from "../../assets/withoutAport.svg";
 import "./style.css";

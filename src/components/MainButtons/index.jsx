@@ -1,7 +1,7 @@
-import Button from "../Button";
+import { useContext, useEffect, useState } from "react";
 import ValuesContext from "../../contexts/ValuesContext";
-import { useContext, useState, useEffect } from "react";
 import loadSimulation from "../../services/handleGetSimulation";
+import Button from "../Button";
 
 export default function MainButtons({
   setOpenSimulation,

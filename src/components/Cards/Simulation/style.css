@@ -7,14 +7,14 @@
 }
 
 .item {
-  min-width: 206px;
-  margin: 5px;
   background: rgb(217, 241, 243);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.37);
-  text-align: center;
-  padding: 5px 30px;
-  margin-right: 50px;
+  margin: 5px;
   margin-bottom: 30px;
+  margin-right: 50px;
+  min-width: 206px;
+  padding: 5px 30px;
+  text-align: center;
 }
 
 .item p {
