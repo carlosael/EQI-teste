@@ -8,36 +8,38 @@ export default function Simulation({ simulationData }) {
         <>
           <h2>Resultado da Simulação</h2>
           <div className="simulation-cards">
-            <section class="grid grid-6-cards">
-              <div class="item">
+            <section className="grid grid-6-cards">
+              <div className="item">
                 <p>Valor Final Bruto</p>
                 <br></br>
                 <span>R$ {simulationData.valorFinalBruto}</span>
               </div>
-              <div class="item">
+              <div className="item">
                 <p>Alíquota do IR</p>
                 <br></br>
                 <span>{simulationData.aliquotaIR}%</span>
               </div>
-              <div class="item">
+              <div className="item">
                 <p>Valor Pago em IR</p>
                 <br></br>
                 <span>R$ {simulationData.valorPagoIR}</span>
               </div>
-              <div class="item">
+              <div className="item">
                 <p>Valor Final Líquido</p>
                 <br></br>
-                <span>R$ {simulationData.valorFinalLiquido}</span>
+                <span className="green">
+                  R$ {simulationData.valorFinalLiquido}
+                </span>
               </div>
-              <div class="item">
+              <div className="item">
                 <p>Valor Total Investido</p>
                 <br></br>
                 <span>R$ {simulationData.valorTotalInvestido}</span>
               </div>
-              <div class="item">
+              <div className="item">
                 <p>Ganho Líquido</p>
                 <br></br>
-                <span>R$ {simulationData.ganhoLiquido}</span>
+                <span className="green">R$ {simulationData.ganhoLiquido}</span>
               </div>
             </section>
           </div>
