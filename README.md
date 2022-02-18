@@ -36,7 +36,7 @@ E depois:
 
 ```sh
   # Abra pasta do projeto
-  $ cd API
+  $ cd BACK
   $ cd src
   # Instale as dependencias
   $ yarn ou npm install
@@ -48,7 +48,7 @@ E depois:
 
 ```sh
   # Abra pasta do projeto
-  $ cd WEB
+  $ cd FRONT
   $ cd src
   # Instale as dependencias
   $ yarn ou npm install
