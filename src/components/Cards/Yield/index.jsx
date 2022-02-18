@@ -12,7 +12,7 @@ function Yield({ setYieldType }) {
 
   useEffect(() => {
     handleGetIPCA(data.setIpca);
-  }, []);
+  }, [data.setIpca]);
 
   function handleChange(target) {
     data.setForm({ ...data.form, [target.name]: target.value });
@@ -89,7 +89,7 @@ function Yield({ setYieldType }) {
             onChange={(event) => handleChange(event.target)}
           />
           {data.termInputTypeError && (
-            <InputErrorMessage>Aporte deve ser um número</InputErrorMessage>
+            <InputErrorMessage>Prazo deve ser um número</InputErrorMessage>
           )}
         </div>
 

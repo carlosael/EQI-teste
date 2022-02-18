@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import InputMask from "react-input-mask";
+import { useContext, useEffect } from "react";
 import check from "../../../assets/check.svg";
 import informationIcon from "../../../assets/informationIcon.svg";
 import ValuesContext from "../../../contexts/ValuesContext";
@@ -14,7 +13,7 @@ function IndexingFees({ setIndexingType }) {
 
   useEffect(() => {
     handleGetCDI(data.setCdi);
-  }, []);
+  }, [data.setCdi]);
 
   function handleChange(target) {
     data.setForm({

@@ -14,11 +14,18 @@ export default function MainButtons({
   const data = useContext(ValuesContext);
 
   async function getSimulation() {
-    let onlyNumbers = /^\s*[0-9]*$/;
+    const onlyNumbers = /^\s*[0-9]*$/;
+
+    const numberAndSymbols = /^\s*R\$[0-9]*$/;
+
+    const numberAndPercentageSymbol = /^\s*[0-9]*%$/;
 
     let anyErrors = false;
 
-    if (onlyNumbers.test(data.form.monthlyAport)) {
+    if (
+      onlyNumbers.test(data.form.monthlyAport) ||
+      numberAndSymbols.test(data.form.monthlyAport)
+    ) {
       data.setMonthlyAportInputTypeError(false);
     } else {
       data.setMonthlyAportInputTypeError(true);
@@ -32,14 +39,20 @@ export default function MainButtons({
       anyErrors = true;
     }
 
-    if (onlyNumbers.test(data.form.aport)) {
+    if (
+      onlyNumbers.test(data.form.aport) ||
+      numberAndSymbols.test(data.form.aport)
+    ) {
       data.setInitialAportInputTypeError(false);
     } else {
       data.setInitialAportInputTypeError(true);
       anyErrors = true;
     }
 
-    if (onlyNumbers.test(data.form.profitability)) {
+    if (
+      onlyNumbers.test(data.form.profitability) ||
+      numberAndPercentageSymbol.test(data.form.profitability)
+    ) {
       data.setProfitabilityInputTypeError(false);
     } else {
       data.setProfitabilityInputTypeError(true);
@@ -50,6 +63,27 @@ export default function MainButtons({
       setOpenSimulation(false);
       return;
     }
+
+    const aport = data.form.aport.includes("R$")
+      ? data.form.aport
+      : `R$${data.form.aport}`;
+
+    const monthlyAport = data.form.monthlyAport.includes("R$")
+      ? data.form.monthlyAport
+      : `R$${data.form.monthlyAport}`;
+
+    const profitability = data.form.profitability.includes("%")
+      ? data.form.profitability
+      : `${data.form.profitability}%`;
+
+    const body = {
+      aport,
+      monthlyAport,
+      profitability,
+      term: data.form.term,
+    };
+
+    data.setForm(body);
 
     await loadSimulation(indexingType, yieldType, setSimulationData);
     setOpenSimulation(true);
@@ -73,6 +107,7 @@ export default function MainButtons({
 
   function handleClearInputs() {
     data.setForm(data.defaultFormValues);
+    setOpenSimulation(false);
     setButtonActive(false);
   }
   return (
