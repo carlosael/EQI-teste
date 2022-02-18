@@ -55,3 +55,7 @@ E depois:
   # Rode a aplicação
   $ yarn start ou npm start
 ```
+
+https://user-images.githubusercontent.com/86244416/154767070-8c9876ea-afef-4618-b95d-7b46a813dfa1.mp4
+
+
