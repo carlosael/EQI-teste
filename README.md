@@ -44,7 +44,7 @@ E depois:
   $ yarn ou npx json-server db.json
 ```
 
-3. Iniciando o front-end:
+2. Iniciando o front-end:
 
 ```sh
   # Abra pasta do projeto
