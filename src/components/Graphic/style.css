@@ -8,3 +8,9 @@
   display: flex;
   gap: 5px;
 }
+
+.time {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 5px;
+}

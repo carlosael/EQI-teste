@@ -73,6 +73,9 @@ const Graphic = ({ simulationData }) => {
             <Bar dataKey="x" stackId="a" fill="#000" />
             <Bar dataKey="y" stackId="a" fill="rgb(139, 131, 56)" />
           </BarChart>
+          <div className="time">
+            <p>Tempo (meses)</p>
+          </div>
           <div className="icons">
             <div className="icons-text">
               <img src={withAportIcon} alt="with aport icon" />
