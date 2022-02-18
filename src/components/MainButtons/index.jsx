@@ -106,6 +106,10 @@ export default function MainButtons({
   ]);
 
   function handleClearInputs() {
+    data.setInitialAportInputTypeError(false);
+    data.setMonthlyAportInputTypeError(false);
+    data.setTermInputTypeError(false);
+    data.setProfitabilityInputTypeError(false);
     data.setForm(data.defaultFormValues);
     setOpenSimulation(false);
     setButtonActive(false);
