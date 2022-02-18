@@ -1,0 +1,39 @@
+.card-title {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.card-title img {
+  height: 15px;
+}
+
+.wider {
+  width: 50%;
+}
+
+.buttons-container {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.buttons-container img {
+  height: 10px;
+  margin-right: 2px;
+}
+
+.inputs {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input {
+  all: unset;
+  box-sizing: border-box;
+  border-bottom: 1px solid #000;
+  margin-bottom: 20px;
+  text-align: left;
+}

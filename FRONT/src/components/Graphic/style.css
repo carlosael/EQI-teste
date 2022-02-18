@@ -1,0 +1,16 @@
+.icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.icons-text {
+  display: flex;
+  gap: 5px;
+}
+
+.time {
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-align: center;
+}
